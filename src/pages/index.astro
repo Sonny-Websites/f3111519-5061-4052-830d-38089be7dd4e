@@ -2,6 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { services } from '../data/services';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') || '';
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -33,12 +37,18 @@ const jsonLd = {
         <p class="hero-subtitle">Professional residential and commercial cleaning.</p>
         <small class="hero-trust">Licensed • Insured • Satisfaction guaranteed</small>
         <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary">Get a Quote</a>
-          <a href="#services" class="btn btn-secondary">Our Services</a>
+          <a href={`${base}/contact#contactFormSection`} class="btn btn-primary">Get a Quote</a>
+          <a href={`${base}/services`} class="btn btn-secondary">Our Services</a>
         </div>
       </div>
-      <div class="media-placeholder" aria-hidden="true">
-        Hero Image/Video Placeholder
+      <div class="hero-media">
+        <img
+          src="https://cdn.prod.website-files.com/60ff934f6ded2d17563ab9dd/61392e6b85cca9544875c7d2_shutterstock_589490129.jpeg"
+          alt="Cleaning professional preparing a spotless interior"
+          loading="eager"
+          width="1280"
+          height="720"
+        />
       </div>
     </div>
   </section>
@@ -47,21 +57,13 @@ const jsonLd = {
     <div class="container">
       <h2 id="servicesHeading">Our services</h2>
       <div class="card-stack">
-        <article class="service-card">
-          <div class="service-media-placeholder" aria-hidden="true">Image/Video Placeholder</div>
-          <h3>Standard Clean</h3>
-          <p>Routine weekly or bi-weekly cleaning for kitchens, bathrooms, bedrooms, and living areas.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-media-placeholder" aria-hidden="true">Image/Video Placeholder</div>
-          <h3>Deep Clean</h3>
-          <p>Detailed top-to-bottom cleaning with extra attention to buildup, baseboards, and high-touch surfaces.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-media-placeholder" aria-hidden="true">Image/Video Placeholder</div>
-          <h3>Move-out Clean</h3>
-          <p>Comprehensive cleaning for empty homes or apartments before move-out or handover.</p>
-        </article>
+        {services.map((service) => (
+          <article class="service-card">
+            <h3>{service.name}</h3>
+            <p>{service.shortDescription}</p>
+            <a href={`${base}/services/${service.slug}`} class="btn btn-secondary">View Service Page</a>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -93,37 +95,6 @@ const jsonLd = {
     </div>
   </section>
 
-  <section id="contact" class="section" role="region" aria-labelledby="contactHeading">
-    <div class="container">
-      <h2 id="contactHeading">Contact</h2>
-      <p class="contact-description">Send us your details and we will follow up with a quote.</p>
-      <form id="contactForm" method="post" action="/__forms/contact" novalidate>
-        <div class="form-group">
-          <label for="name">Name <span aria-label="required">*</span></label>
-          <input type="text" id="name" name="name" required aria-required="true" aria-describedby="nameError" />
-          <span id="nameError" class="error-message"></span>
-        </div>
-        <div class="form-group">
-          <label for="email">Email <span aria-label="required">*</span></label>
-          <input type="email" id="email" name="email" required aria-required="true" aria-describedby="emailError" />
-          <span id="emailError" class="error-message"></span>
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone (optional)</label>
-          <input type="tel" id="phone" name="phone" aria-describedby="phoneError" />
-          <span id="phoneError" class="error-message"></span>
-        </div>
-        <div class="form-group">
-          <label for="message">Message <span aria-label="required">*</span></label>
-          <textarea id="message" name="message" rows="5" required aria-required="true" aria-describedby="messageError"></textarea>
-          <span id="messageError" class="error-message"></span>
-        </div>
-        <input type="hidden" name="owner_email" value="eitanwaxman@gmail.com" />
-        <input type="text" name="_hp" style="display:none" autocomplete="off" tabindex="-1" />
-        <button type="submit" id="submitBtn" class="btn btn-primary" aria-busy="false">Submit</button>
-      </form>
-      <div id="responseMessage" role="alert" aria-live="polite"></div>
-    </div>
-  </section>
+  <ContactForm />
   <Footer />
 </BaseLayout>

@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout
+  title="Contact — Placeholder Local Cleaning"
+  description="Contact Placeholder Local Cleaning for a service quote."
+  ogTitle="Contact — Placeholder Local Cleaning"
+  ogDescription="Request a quote using our site-wide contact form."
+>
+  <Header current="contact" />
+  <ContactForm
+    heading="Contact"
+    description="Use this site-wide form to request a quote for any service."
+    sectionId="contactFormSection"
+  />
+  <Footer />
+</BaseLayout>

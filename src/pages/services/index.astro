@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { services } from '../../data/services';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') || '';
+---
+
+<BaseLayout
+  title="Services — Placeholder Local Cleaning"
+  description="Explore our cleaning services and view each dedicated service page."
+  ogTitle="Services — Placeholder Local Cleaning"
+  ogDescription="Browse our residential, commercial, deep, move, and carpet cleaning services."
+>
+  <Header current="services" />
+  <section class="hero service-hero" role="region" aria-labelledby="servicesPageHeading">
+    <div class="container">
+      <div class="hero-content">
+        <h1 id="servicesPageHeading">Our Services</h1>
+        <p class="hero-subtitle">Placeholder: One-line descriptions and links to dedicated service pages.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" role="region" aria-labelledby="servicesListHeading">
+    <div class="container">
+      <h2 id="servicesListHeading">Service List</h2>
+      <div class="card-stack">
+        {services.map((service) => (
+          <article class="service-card">
+            <h3>{service.name}</h3>
+            <p>{service.shortDescription}</p>
+            <a href={`${base}/services/${service.slug}`} class="btn btn-secondary">View Service Page</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+  <Footer />
+</BaseLayout>
