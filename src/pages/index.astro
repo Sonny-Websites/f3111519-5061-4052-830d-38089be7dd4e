@@ -5,114 +5,124 @@ import Footer from '../components/Footer.astro';
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'My Site',
+  '@type': 'LocalBusiness',
+  name: 'Placeholder Local Cleaning',
   url: 'https://example.com',
-  description: 'We provide top-notch services and solutions',
+  description: 'Professional, insured cleaning for homes and small offices.',
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'Customer Service',
+    email: 'eitanwaxman@gmail.com',
     availableLanguage: ['en']
   }
 };
 ---
 
-<BaseLayout
-  title="Landing Page - Premium Services & Solutions"
-  description="Our landing page offers top-notch services and solutions for your business needs."
-  ogTitle="Welcome to Our Site"
-  ogDescription="Discover amazing things with us. We provide top-notch services and solutions."
+  <BaseLayout
+  title="Placeholder Local Cleaning"
+  description="Reliable local cleaners for homes and small offices."
+  ogTitle="Reliable Local Cleaners — Book Today"
+  ogDescription="Professional, insured cleaning for homes and small offices."
   jsonLd={jsonLd}
 >
   <Header current="home" />
   <section class="hero" role="region" aria-labelledby="heroHeading">
-    <div class="hero-wrapper">
+    <div class="container">
       <div class="hero-content">
-        <div class="hero-tag">Welcome to Excellence</div>
-        <h1 id="heroHeading">Exceptional Services Built for Your Success</h1>
-        <p class="hero-subtitle">Discover amazing things with us. We provide top-notch services and solutions that transform businesses and exceed expectations.</p>
+        <h1 id="heroHeading">Reliable Local Cleaners — Book Today</h1>
+        <p class="hero-subtitle">Professional, insured cleaning for homes and small offices.</p>
         <div class="hero-buttons">
-          <a href="#features" class="btn btn-primary btn-large">Explore Features</a>
-          <a href="#contact" class="btn btn-secondary btn-large">Get in Touch</a>
+          <a href="#contact" class="btn btn-primary">Get a Quote</a>
+          <a href="#services" class="btn btn-secondary">Our Services</a>
         </div>
       </div>
-      <div class="hero-image-placeholder">
-        <img src="https://placehold.co/500x500/667eea/ffffff?text=Our+Services" alt="Professional services showcase" loading="lazy" />
+      <div class="media-placeholder" aria-hidden="true">
+        Hero Image/Video Placeholder
       </div>
     </div>
   </section>
-  <section id="features" class="features" role="region" aria-labelledby="featuresHeading">
-    <h2 id="featuresHeading">Our Key Features</h2>
-    <div class="features-grid">
-      <article class="feature-card">
-        <div class="feature-icon">🚀</div>
-        <h3>Fast Performance</h3>
-        <p>Lightning-fast delivery of our services with optimized solutions tailored to your needs.</p>
-        <a href="#contact" class="btn btn-small">Learn More</a>
-      </article>
-      <article class="feature-card">
-        <div class="feature-icon">💎</div>
-        <h3>Premium Quality</h3>
-        <p>We guarantee the highest quality standards in every product and service we deliver.</p>
-        <a href="#contact" class="btn btn-small">Learn More</a>
-      </article>
-      <article class="feature-card">
-        <div class="feature-icon">🛡️</div>
-        <h3>Secure & Reliable</h3>
-        <p>Your data and trust are our priority with enterprise-grade security protocols.</p>
-        <a href="#contact" class="btn btn-small">Learn More</a>
-      </article>
-      <article class="feature-card">
-        <div class="feature-icon">🤝</div>
-        <h3>Expert Support</h3>
-        <p>Dedicated support team available 24/7 to assist with any questions or concerns.</p>
-        <a href="#contact" class="btn btn-small">Learn More</a>
-      </article>
+
+  <section id="services" class="section" role="region" aria-labelledby="servicesHeading">
+    <div class="container">
+      <h2 id="servicesHeading">Services</h2>
+      <div class="card-stack">
+        <article class="service-card">
+          <div class="service-media-placeholder" aria-hidden="true">Image/Video Placeholder</div>
+          <h3>Standard Clean</h3>
+          <p>Routine weekly or bi-weekly cleaning for kitchens, bathrooms, bedrooms, and living areas.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-media-placeholder" aria-hidden="true">Image/Video Placeholder</div>
+          <h3>Deep Clean</h3>
+          <p>Detailed top-to-bottom cleaning with extra attention to buildup, baseboards, and high-touch surfaces.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-media-placeholder" aria-hidden="true">Image/Video Placeholder</div>
+          <h3>Move-out Clean</h3>
+          <p>Comprehensive cleaning for empty homes or apartments before move-out or handover.</p>
+        </article>
+      </div>
     </div>
   </section>
-  <section id="testimonials" class="testimonials" role="region" aria-labelledby="testimonialsHeading">
-    <h2 id="testimonialsHeading">What Our Customers Say</h2>
-    <div class="testimonials-grid">
-      <article class="testimonial-card">
-        <div class="testimonial-rating">★★★★★</div>
-        <p class="testimonial-text">"This service has transformed our business operations. Highly recommended!"</p>
-        <p class="testimonial-author">- Sarah Johnson, CEO</p>
-      </article>
-      <article class="testimonial-card">
-        <div class="testimonial-rating">★★★★★</div>
-        <p class="testimonial-text">"Exceptional quality and support. Best decision we've made for our company."</p>
-        <p class="testimonial-author">- Michael Chen, Director</p>
-      </article>
-      <article class="testimonial-card">
-        <div class="testimonial-rating">★★★★★</div>
-        <p class="testimonial-text">"Professional team with outstanding results. Worth every penny!"</p>
-        <p class="testimonial-author">- Emily Rodriguez, Manager</p>
-      </article>
+
+  <section id="about" class="section" role="region" aria-labelledby="aboutHeading">
+    <div class="container">
+      <h2 id="aboutHeading">About</h2>
+      <p class="about-copy">We deliver dependable, detail-focused cleaning backed by experienced professionals, insurance coverage, and trusted service standards that help homeowners and small offices feel confident every visit.</p>
     </div>
   </section>
-  <section id="contact" class="contact" role="region" aria-labelledby="contactHeading">
-    <h2 id="contactHeading">Contact Us</h2>
-    <p class="contact-description">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
-    <form id="contactForm" method="post" action="/__forms/contact" novalidate>
-      <div class="form-group">
-        <label for="name">Name <span aria-label="required">*</span></label>
-        <input type="text" id="name" name="name" required aria-required="true" aria-describedby="nameError" />
-        <span id="nameError" class="error-message"></span>
+
+  <section id="testimonials" class="section" role="region" aria-labelledby="testimonialsHeading">
+    <div class="container">
+      <h2 id="testimonialsHeading">Testimonials</h2>
+      <div class="card-stack">
+        <article class="testimonial-card">
+          <p>"Consistent quality and great communication every time."</p>
+          <p class="testimonial-author">Satisfied Customer</p>
+        </article>
+        <article class="testimonial-card">
+          <p>"Our office has never looked better. Reliable and efficient team."</p>
+          <p class="testimonial-author">Satisfied Customer</p>
+        </article>
+        <article class="testimonial-card">
+          <p>"Move-out cleaning was thorough and stress-free."</p>
+          <p class="testimonial-author">Satisfied Customer</p>
+        </article>
       </div>
-      <div class="form-group">
-        <label for="email">Email <span aria-label="required">*</span></label>
-        <input type="email" id="email" name="email" required aria-required="true" aria-describedby="emailError" />
-        <span id="emailError" class="error-message"></span>
-      </div>
-      <div class="form-group">
-        <label for="message">Message <span aria-label="required">*</span></label>
-        <textarea id="message" name="message" rows="5" required aria-required="true" aria-describedby="messageError"></textarea>
-        <span id="messageError" class="error-message"></span>
-      </div>
-      <input type="text" name="_hp" style="display:none" autocomplete="off" tabindex="-1" />
-      <button type="submit" id="submitBtn" class="btn btn-primary" aria-busy="false">Send Message</button>
-    </form>
-    <div id="responseMessage" role="alert"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="section" role="region" aria-labelledby="contactHeading">
+    <div class="container">
+      <h2 id="contactHeading">Contact</h2>
+      <p class="contact-description">Send us your details and we will follow up with a quote.</p>
+      <form id="contactForm" method="post" action="/__forms/contact" novalidate>
+        <div class="form-group">
+          <label for="name">Name <span aria-label="required">*</span></label>
+          <input type="text" id="name" name="name" required aria-required="true" aria-describedby="nameError" />
+          <span id="nameError" class="error-message"></span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email <span aria-label="required">*</span></label>
+          <input type="email" id="email" name="email" required aria-required="true" aria-describedby="emailError" />
+          <span id="emailError" class="error-message"></span>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone (optional)</label>
+          <input type="tel" id="phone" name="phone" aria-describedby="phoneError" />
+          <span id="phoneError" class="error-message"></span>
+        </div>
+        <div class="form-group">
+          <label for="message">Message <span aria-label="required">*</span></label>
+          <textarea id="message" name="message" rows="5" required aria-required="true" aria-describedby="messageError"></textarea>
+          <span id="messageError" class="error-message"></span>
+        </div>
+        <input type="hidden" name="owner_email" value="eitanwaxman@gmail.com" />
+        <input type="text" name="_hp" style="display:none" autocomplete="off" tabindex="-1" />
+        <button type="submit" id="submitBtn" class="btn btn-primary" aria-busy="false">Submit</button>
+      </form>
+      <div id="responseMessage" role="alert" aria-live="polite"></div>
+    </div>
   </section>
   <Footer />
 </BaseLayout>
