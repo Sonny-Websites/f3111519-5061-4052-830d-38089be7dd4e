@@ -17,7 +17,7 @@ const sitemapHref = Astro.site
       Astro.site.href.endsWith('/') ? Astro.site.href : `${Astro.site.href}/`
     ).href
   : undefined;
-const siteTitle = title.includes(' - ') ? title : `${title} - Placeholder Local Cleaning`;
+const siteTitle = title;
 const metaDescription = description ?? 'Professional, insured cleaning for homes and small offices.';
 const metaOgTitle = ogTitle ?? title;
 const metaOgDescription = ogDescription ?? metaDescription;

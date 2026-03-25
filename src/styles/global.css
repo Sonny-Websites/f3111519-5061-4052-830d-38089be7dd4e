@@ -152,6 +152,16 @@ nav {
   padding: 48px 0 32px;
 }
 
+.hero .container {
+  display: grid;
+  gap: 16px;
+}
+
+.hero h1 {
+  color: #ffffff;
+  font-family: 'Playfair Display', Arial, serif;
+}
+
 .hero-subtitle {
   margin-bottom: 8px;
   max-width: 52ch;
@@ -168,18 +178,27 @@ nav {
   margin-bottom: 24px;
 }
 
-.media-placeholder {
-  align-items: center;
-  background: var(--color-block);
-  border: 1px dashed var(--color-border-strong);
-  color: var(--color-text-secondary);
-  display: flex;
-  font-size: 0.95rem;
-  font-weight: 600;
-  justify-content: center;
-  min-height: 180px;
-  padding: 16px;
-  text-align: center;
+.hero-media {
+  background: #000000;
+  border: 1px solid var(--color-border-muted);
+  min-height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-media::after {
+  background: linear-gradient(180deg, rgba(11, 37, 69, 0.2) 0%, rgba(17, 17, 17, 0.55) 100%);
+  content: '';
+  inset: 0;
+  position: absolute;
+}
+
+.hero-media img {
+  display: block;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  width: 100%;
 }
 
 .section {
@@ -215,6 +234,49 @@ form {
   min-height: 92px;
   padding: 8px;
   text-align: center;
+}
+
+.content-card {
+  background: var(--color-block);
+  border: 1px solid var(--color-border-muted);
+  box-shadow: var(--shadow-sm);
+  padding: 16px;
+}
+
+.content-card p + p {
+  margin-top: 12px;
+}
+
+.checklist,
+.pricing-list {
+  margin-left: 20px;
+}
+
+.checklist li,
+.pricing-list li {
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+}
+
+.placeholder-label {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.gallery-placeholder {
+  color: #ffffff;
+  border: 1px dashed var(--color-border-strong);
+  min-height: 80px;
+  padding: 16px;
+}
+
+.cta-card .btn {
+  margin-top: 16px;
+}
+
+.service-hero {
+  padding-bottom: 12px;
 }
 
 .service-card h3 {
@@ -429,6 +491,15 @@ footer {
   margin-bottom: 6px;
 }
 
+.footer-section a {
+  color: var(--color-text-secondary);
+}
+
+.footer-section a:hover,
+.footer-section a:focus-visible {
+  color: #ffffff;
+}
+
 .footer-bottom {
   border-top: 1px solid var(--color-border-muted);
   margin: 16px auto 0;
@@ -460,6 +531,11 @@ footer {
 }
 
 @media (min-width: 600px) {
+  .hero .container {
+    align-items: stretch;
+    grid-template-columns: 1fr 1fr;
+  }
+
   .hero-buttons {
     flex-direction: row;
   }
