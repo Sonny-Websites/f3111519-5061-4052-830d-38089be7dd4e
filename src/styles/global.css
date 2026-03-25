@@ -3,8 +3,8 @@
 :root {
   --color-primary-bg: #0B2545;
   --color-block: #111111;
-  --color-accent: #2A9DF4;
-  --color-accent-hover: #53b0f7;
+  --color-accent: #B91C1C;
+  --color-accent-hover: #AA1A1A;
   --color-text-primary: #F7FBFF;
   --color-text-secondary: #CFCFCF;
   --color-border-strong: #CFCFCF;
@@ -122,6 +122,7 @@ nav {
 }
 
 .nav-menu a {
+  border: 1px solid transparent;
   color: var(--color-text-primary);
   display: inline-flex;
   font-size: 0.95rem;
@@ -134,7 +135,8 @@ nav {
 .nav-menu a:hover,
 .nav-menu a:focus-visible {
   background: var(--color-block);
-  color: var(--color-text-primary);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
   text-decoration: none;
 }
 
@@ -258,8 +260,13 @@ form {
   margin-bottom: 8px;
 }
 
+.checklist li::marker,
+.pricing-list li::marker {
+  color: var(--color-accent);
+}
+
 .placeholder-label {
-  color: #ffffff;
+  color: var(--color-accent);
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -276,7 +283,12 @@ form {
 }
 
 .service-hero {
+  border-bottom: 1px solid var(--color-accent);
   padding-bottom: 12px;
+}
+
+.service-hero .hero-subtitle {
+  color: var(--color-accent);
 }
 
 .service-card h3 {
@@ -417,14 +429,14 @@ textarea.error {
 
 .btn-secondary {
   background: transparent;
-  border-color: var(--color-text-primary);
-  color: var(--color-text-primary);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .btn-secondary:hover {
-  background: transparent;
-  border-color: var(--color-text-secondary);
-  color: var(--color-text-primary);
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -492,12 +504,12 @@ footer {
 }
 
 .footer-section a {
-  color: var(--color-text-secondary);
+  color: var(--color-accent);
 }
 
 .footer-section a:hover,
 .footer-section a:focus-visible {
-  color: #ffffff;
+  color: var(--color-accent-hover);
 }
 
 .footer-bottom {
